@@ -1,6 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:sport_shopping_application_ui/animation/fade_animation.dart';
+import 'package:sport_shopping_application_ui/components/button_row.dart';
+import 'package:sport_shopping_application_ui/components/gradient_layer.dart';
+import 'package:sport_shopping_application_ui/components/shoe_info_section.dart';
+import 'package:sport_shopping_application_ui/components/size_row.dart';
 import 'package:sport_shopping_application_ui/config/app_color.dart';
+import 'package:sport_shopping_application_ui/widgets/buy_button.dart';
+import 'package:sport_shopping_application_ui/widgets/shoe_size.dart';
+import 'package:sport_shopping_application_ui/widgets/title.dart';
 
 class Shoes extends StatefulWidget {
   final String image;
@@ -22,68 +31,15 @@ class _ShoesState extends State<Shoes> {
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(widget.image),
-                  fit: BoxFit.cover,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: middleGrey,
-                    blurRadius: 10,
-                    offset: Offset(0, 10),
-                  ),
-                ]),
+              image: DecorationImage(
+                image: AssetImage(widget.image),
+                fit: BoxFit.cover,
+              ),
+            ),
             child: Stack(
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Sneakers',
-                            style: TextStyle(
-                              color: primaryWhite,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            'Nike',
-                            style: TextStyle(
-                              color: primaryWhite,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: primaryWhite,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.favorite_border,
-                          size: 20,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Text(
-                  '100 \$',
-                  style: TextStyle(
-                    color: primaryWhite,
-                    fontSize: 20,
-                  ),
-                ),
+                ButtonRow(),
+                GradientLayer(),
               ],
             ),
           ),
